@@ -1,0 +1,12 @@
+.container{
+    /* display: flex; */
+    align-items: center;
+    background-color: pink;
+    margin: 9px;
+
+}
+
+.line{
+    display: flex;
+}
+
