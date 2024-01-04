@@ -26,6 +26,24 @@ export default function CategoriesNav() {
                 <li className="nav-item">
                     <Link className="nav-link" to="/home-decoration">home-decoration</Link>
                 </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/furniture">furniture</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/tops">tops</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/sunglasses">sunglasses</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/automotive">automotive</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/motorcycle">motorcycle</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/lighting">lighting</Link>
+                </li>
             </ul>
         </div>
     )
