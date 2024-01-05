@@ -8,8 +8,6 @@ export default function Items(props) {
     const prop = useContext(cartContext);
 
     const addToCart =()=>{
-        // <Cart thumbnail = {props.thumbnail} title={props.title} price = {props.price} quantity = {1}/>
-        // console.log(props.title )
         let item = {
             thumbnail: props.thumbnail,
             title: props.title,

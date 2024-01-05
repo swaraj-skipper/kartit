@@ -5,24 +5,26 @@ import Category from './components/Category';
 import Cart from './components/Cart';
 import Search from './components/Search';
 import Login from './components/Login';
-
 import {
   BrowserRouter as Router,
   Routes,
   Route
 } from "react-router-dom";
 import CartState from './context/cartlist/CartState';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
+
   return (
     <div>
+ 
       <CartState>
         <Router>
           <Navbar />
           <CategoriesNav />
           <Routes>
-            <Route exact path="/" element={<Category type={""} />} />
-            <Route exact path="/smartphones" element={<Category type={"/category/smartphones"} />} />
+            <Route exact path="/" element={<Category type={""} />} />    
+            <Route exact path="/smartphones" element={<ProtectedRoute><Category type={"/category/smartphones"}/></ProtectedRoute>} />
             <Route exact path="/laptops" element={<Category type={"/category/laptops"} />} />
             <Route exact path="/fragrances" element={<Category type={"/category/fragrances"} />} />
             <Route exact path="/skincare" element={<Category type={"/category/skincare"} />} />
