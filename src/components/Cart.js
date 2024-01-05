@@ -21,7 +21,6 @@ export default function Cart() {
                         return (
                             <tbody key={elem.thumbnail}>
                                 <CartItem thumbnail={elem.thumbnail} title={elem.title} price={elem.price} quantity={elem.quantity} />
-
                             </tbody>
                         )
                     })

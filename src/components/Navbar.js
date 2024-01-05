@@ -1,7 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
+    const [item, setItem] = useState([]);
+    const [text, setText] = useState();
+    const searchItem = () => {
+        fetch(`https://dummyjson.com/products/search?q=${text}`)
+            .then(res => res.json())
+            .then(res=> console.log(res));
+    }
+
+    const searchText = (e) =>{
+        e.preventDefault();
+        setText(e.target.value)
+    }
+
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -19,16 +32,20 @@ export default function Navbar() {
                                 <Link className="nav-link" aria-current="page" to="/">Home</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link" to="/Login">Login</Link>
+                                <Link className="nav-link" to="/login">Login</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/cart">cart</Link>
                             </li>
                         </ul>
-                        <form className="d-flex" role="search">
+                        {/* <form className="d-flex" role="search">
                             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-                            <button className="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+                            <button className="btn btn-outline-success" onClick={searchItem}>Search</button>
+                        </form> */}
+                        <form className="d-flex">
+                            <input className="form-control me-2" onChange={searchText} placeholder="Search"/>
+                            <Link to='/search' className="btn btn-outline-success" onClick={searchItem}>Search</Link>
+                        </form> 
                     </div>
                 </div>
             </nav>

@@ -3,6 +3,8 @@ import CategoriesNav from './components/CategoriesNav';
 import Navbar from './components/Navbar';
 import Category from './components/Category';
 import Cart from './components/Cart';
+import Search from './components/Search';
+import Login from './components/Login';
 
 import {
   BrowserRouter as Router,
@@ -32,6 +34,8 @@ function App() {
             <Route exact path="/motorcycle" element={<Category type={"/category/motorcycle"} />} />
             <Route exact path="/lighting" element={<Category type={"/category/lighting"} />} />
             <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/search" element={<Search />} />
+            <Route exact path="/login" element={<Login />} />
           </Routes>
         </Router>
       </CartState>

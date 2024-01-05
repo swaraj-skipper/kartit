@@ -15,8 +15,8 @@ export default function Category(props) {
             } catch (error) {
                 console.log(error)
             }
-    
-        }    
+
+        }
         // fetch('')
         //     .then(res => res.json())
         //     .then((res) => {

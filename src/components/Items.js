@@ -19,7 +19,7 @@ export default function Items(props) {
 
         const newList = [...prop.cartlist, item];
         prop.setCartlist(newList);
-        console.log(newList);
+        // console.log(newList);
         // console.log(prop.cartlist[0])
     }
 
