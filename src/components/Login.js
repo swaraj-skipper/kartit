@@ -22,21 +22,26 @@ export default function Login() {
             password: y,
         };
 
-        fetch(loginEndpoint, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(loginCredentials),
-        })
-            .then((res) => res.json())
-            .then((res) => {
-                const authToken = res.token;
-                setAuthToken(authToken);
-                localStorage.setItem('authToken', authToken);
+        try {
+            fetch(loginEndpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(loginCredentials),
             })
-            .catch((error) => {
-                console.log("HE")
-                console.log('Error during login:', error);
-            });
+                .then((res) => res.json())
+                .then((res) => {
+                    const authToken = res.token;
+                    setAuthToken(authToken);
+                    localStorage.setItem('authToken', authToken);
+                })
+                .catch((error) => {
+                    console.log("HE")
+                    console.log('Error during login:', error);
+                });
+        } catch (error) {
+            console.log(error)
+        }
+        
     };
 
     const handleLogout = () => {
@@ -47,7 +52,7 @@ export default function Login() {
 
     return (
         <div>
-            <div style={{"display": authToken?'none':'flex'}}>
+            <div style={{ "display": authToken ? 'none' : 'flex' }} className='container'>
                 <form onSubmit={handleLogin}>
                     <div className="mb-3">
                         <label htmlFor="userName" className="form-label">Username</label>
@@ -59,10 +64,14 @@ export default function Login() {
                     </div>
                     <button type="submit" className="btn btn-primary" >Submit</button>
                 </form>
+            <h3>DummyUserName: kminchelle</h3>
+            <h3>DummyPassword: 0lelplR</h3>
             </div>
-                <button onClick={handleLogout} style={{ "display": !authToken ? 'none' : 'flex' }}>Logout</button>
-                <h3>kminchelle</h3>
-                <h3>0lelplR</h3>
+            <div className='container' style={{ "display": !authToken ? 'none' : 'flex' }}>
+                <h2>Logged In SUCCESSFULLY</h2>
+                <button onClick={handleLogout} >Logout</button>
+            </div>
+            {/* <hr></hr> */}
         </div>
     )
 }

@@ -24,7 +24,7 @@ function App() {
           <CategoriesNav />
           <Routes>
             <Route exact path="/" element={<Category type={""} />} />    
-            <Route exact path="/smartphones" element={<ProtectedRoute><Category type={"/category/smartphones"}/></ProtectedRoute>} />
+            <Route exact path="/smartphones" element={<Category type={"/category/smartphones"}/>} />
             <Route exact path="/laptops" element={<Category type={"/category/laptops"} />} />
             <Route exact path="/fragrances" element={<Category type={"/category/fragrances"} />} />
             <Route exact path="/skincare" element={<Category type={"/category/skincare"} />} />
@@ -35,7 +35,7 @@ function App() {
             <Route exact path="/automotive" element={<Category type={"/category/automotive"} />} />
             <Route exact path="/motorcycle" element={<Category type={"/category/motorcycle"} />} />
             <Route exact path="/lighting" element={<Category type={"/category/lighting"} />} />
-            <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/cart" element={<ProtectedRoute><Cart/></ProtectedRoute>} />
             <Route exact path="/search" element={<Search />} />
             <Route exact path="/login" element={<Login />} />
           </Routes>

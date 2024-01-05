@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from "react-router-dom";
+import cartContext from '../context/cartlist/cartContext'
 
 export default function Navbar() {
-    const [item, setItem] = useState([]);
+    const prop = useContext(cartContext);
     const [text, setText] = useState();
     const searchItem = () => {
         fetch(`https://dummyjson.com/products/search?q=${text}`)
             .then(res => res.json())
-            .then(res=> console.log(res));
+            .then(res =>{
+                console.log(res)
+                prop.setSearch(res.products);
+                console.log(prop.search)
+            });
     }
 
     const searchText = (e) =>{
