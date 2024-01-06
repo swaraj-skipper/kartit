@@ -30,6 +30,7 @@ function App() {
             <Route exact path="/skincare" element={<Category type={"/category/skincare"} />} />
             <Route exact path="/groceries" element={<Category type={"/category/groceries"} />} />
             <Route exact path="/home-decoration" element={<Category type={"/category/home-decoration"} />} />
+            <Route exact path="/furniture" element={<Category type={"/category/furniture"} />} />
             <Route exact path="/tops" element={<Category type={"/category/tops"} />} />
             <Route exact path="/sunglasses" element={<Category type={"/category/sunglasses"} />} />
             <Route exact path="/automotive" element={<Category type={"/category/automotive"} />} />

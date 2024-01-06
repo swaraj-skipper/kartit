@@ -32,8 +32,8 @@ export default function Category(props) {
                 {
                     item.map((elem) => {
                         return (
-                            <div key={elem.id} className='col-md-3'>
-                                <Items title={elem.title} description={elem.description} discountPercentage={elem.discountPercentage} thumbnail={elem.thumbnail} rating={elem.rating} price={elem.price} stock={elem.stock} />
+                            <div key={elem.id} className='col-md-3 center'>
+                                <Items id={elem.id} title={elem.title} description={elem.description} discountPercentage={elem.discountPercentage} thumbnail={elem.thumbnail} rating={elem.rating} price={elem.price} stock={elem.stock} />
                             </div>
                         )
                     })

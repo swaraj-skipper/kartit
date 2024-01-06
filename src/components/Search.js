@@ -7,9 +7,9 @@ export default function Search() {
     return (
         <div className='row'>
             {
-                prop.search.map((elem) => {
+                !prop.search.length?<div className='msg'>Sorry, no results found!</div>:prop.search.map((elem) => {
                     return (
-                        <div key={elem.id} className='col-md-3'>
+                        <div key={elem.id} className='col-md-3 center'>
                             <Items title={elem.title} description={elem.description} discountPercentage={elem.discountPercentage} thumbnail={elem.thumbnail} rating={elem.rating} price={elem.price} stock={elem.stock} />
                         </div>
                     )

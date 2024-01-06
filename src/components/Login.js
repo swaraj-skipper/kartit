@@ -22,26 +22,29 @@ export default function Login() {
             password: y,
         };
 
-        try {
-            fetch(loginEndpoint, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(loginCredentials),
+
+        fetch(loginEndpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(loginCredentials),
+        })
+            .then((res) => {
+                if (res.status === 400) {
+                    alert("Invalid Info");
+                    return;
+                }
+                return res.json();
             })
-                .then((res) => res.json())
-                .then((res) => {
-                    const authToken = res.token;
-                    setAuthToken(authToken);
-                    localStorage.setItem('authToken', authToken);
-                })
-                .catch((error) => {
-                    console.log("HE")
-                    console.log('Error during login:', error);
-                });
-        } catch (error) {
-            console.log(error)
-        }
-        
+            .then((res) => {
+                const authToken = res.token;
+                setAuthToken(authToken);
+                localStorage.setItem('authToken', authToken);
+            })
+            .catch((error) => {
+                console.log('Error during login:', error);
+            });
+
+
     };
 
     const handleLogout = () => {
@@ -52,7 +55,7 @@ export default function Login() {
 
     return (
         <div>
-            <div style={{ "display": authToken ? 'none' : 'flex' }} className='container'>
+            <div style={{ "display": authToken ? 'none' : 'flex' }} className='container msg'>
                 <form onSubmit={handleLogin}>
                     <div className="mb-3">
                         <label htmlFor="userName" className="form-label">Username</label>
@@ -64,8 +67,8 @@ export default function Login() {
                     </div>
                     <button type="submit" className="btn btn-primary" >Submit</button>
                 </form>
-            <h3>DummyUserName: kminchelle</h3>
-            <h3>DummyPassword: 0lelplR</h3>
+                <p>DummyUserName: kminchelle</p>
+                <p>DummyPassword: 0lelplR</p>
             </div>
             <div className='container' style={{ "display": !authToken ? 'none' : 'flex' }}>
                 <h2>Logged In SUCCESSFULLY</h2>

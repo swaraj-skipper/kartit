@@ -9,9 +9,7 @@ export default function Navbar() {
         fetch(`https://dummyjson.com/products/search?q=${text}`)
             .then(res => res.json())
             .then(res =>{
-                console.log(res)
                 prop.setSearch(res.products);
-                console.log(prop.search)
             });
     }
 
